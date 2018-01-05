@@ -1,0 +1,71 @@
+
+PLAY [base service manipulation] ***********************************************************************
+
+TASK [Gathering Facts] *********************************************************************************
+ok: [192.168.121.35]
+
+TASK [Stop the service] ********************************************************************************
+ok: [192.168.121.35] => (item=chronyd)
+
+TASK [disable the service] *****************************************************************************
+ok: [192.168.121.35] => (item=chronyd)
+
+TASK [restart the machine] *****************************************************************************
+changed: [192.168.121.35]
+
+TASK [waiting for server] ******************************************************************************
+ok: [192.168.121.35 -> localhost]
+
+TASK [command] *****************************************************************************************
+fatal: [192.168.121.35]: FAILED! => {"changed": true, "cmd": ["systemctl", "status", "chronyd"], "delta": "0:00:00.010929", "end": "2018-01-05 11:43:29.860329", "msg": "non-zero return code", "rc": 3, "start": "2018-01-05 11:43:29.849400", "stderr": "", "stderr_lines": [], "stdout": "● chronyd.service - NTP client/server\n   Loaded: loaded (/usr/lib/systemd/system/chronyd.service; disabled; vendor preset: enabled)\n   Active: inactive (dead)\n     Docs: man:chronyd(8)\n           man:chrony.conf(5)", "stdout_lines": ["● chronyd.service - NTP client/server", "   Loaded: loaded (/usr/lib/systemd/system/chronyd.service; disabled; vendor preset: enabled)", "   Active: inactive (dead)", "     Docs: man:chronyd(8)", "           man:chrony.conf(5)"]}
+...ignoring
+
+TASK [fail] ********************************************************************************************
+skipping: [192.168.121.35]
+
+TASK [Start the service] *******************************************************************************
+changed: [192.168.121.35] => (item=chronyd)
+
+TASK [command] *****************************************************************************************
+changed: [192.168.121.35]
+
+TASK [fail] ********************************************************************************************
+skipping: [192.168.121.35]
+
+TASK [enable the service] ******************************************************************************
+changed: [192.168.121.35] => (item=chronyd)
+
+TASK [restart the machine] *****************************************************************************
+changed: [192.168.121.35]
+
+TASK [waiting for server] ******************************************************************************
+ok: [192.168.121.35 -> localhost]
+
+TASK [command] *****************************************************************************************
+changed: [192.168.121.35]
+
+TASK [fail] ********************************************************************************************
+skipping: [192.168.121.35]
+
+TASK [Stop the service] ********************************************************************************
+changed: [192.168.121.35] => (item=chronyd)
+
+TASK [disable the service] *****************************************************************************
+changed: [192.168.121.35] => (item=chronyd)
+
+TASK [restart the machine] *****************************************************************************
+changed: [192.168.121.35]
+
+TASK [waiting for server] ******************************************************************************
+ok: [192.168.121.35 -> localhost]
+
+TASK [command] *****************************************************************************************
+fatal: [192.168.121.35]: FAILED! => {"changed": true, "cmd": ["systemctl", "status", "chronyd"], "delta": "0:00:00.010630", "end": "2018-01-05 11:43:55.806249", "msg": "non-zero return code", "rc": 3, "start": "2018-01-05 11:43:55.795619", "stderr": "", "stderr_lines": [], "stdout": "● chronyd.service - NTP client/server\n   Loaded: loaded (/usr/lib/systemd/system/chronyd.service; disabled; vendor preset: enabled)\n   Active: inactive (dead)\n     Docs: man:chronyd(8)\n           man:chrony.conf(5)", "stdout_lines": ["● chronyd.service - NTP client/server", "   Loaded: loaded (/usr/lib/systemd/system/chronyd.service; disabled; vendor preset: enabled)", "   Active: inactive (dead)", "     Docs: man:chronyd(8)", "           man:chrony.conf(5)"]}
+...ignoring
+
+TASK [fail] ********************************************************************************************
+skipping: [192.168.121.35]
+
+PLAY RECAP *********************************************************************************************
+192.168.121.35             : ok=17   changed=11   unreachable=0    failed=0   
+
