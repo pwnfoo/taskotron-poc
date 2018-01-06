@@ -1,6 +1,5 @@
-
 ---
-  - name: base service manipulation
+  - name: base service start
     hosts: atomic
     become: yes
     tasks:
@@ -21,11 +20,11 @@
         delegate_to: localhost
 
       - name: checking if any service has failed
-        shell: systemctl --all --fail | grep failed > check.txt
+        shell: systemctl --all --fail | grep failed > output.txt
         ignore_errors: True
 
       - stat:
-          path: check.txt
+          path: output.txt
         register: file
 
       - fail:

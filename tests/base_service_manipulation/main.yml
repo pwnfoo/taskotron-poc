@@ -1,4 +1,3 @@
-
 ---
   - name: base service manipulation
     hosts: atomic
