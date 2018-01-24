@@ -1,0 +1,12 @@
+---
+- name: checking journalctl
+  shell: journalctl -aeb > output.txt
+  ignore_errors: True
+
+- stat:
+    path: output.txt
+  register: file
+
+- fail:
+    msg: "File has nothing it"
+  when: file.stat.size == 0

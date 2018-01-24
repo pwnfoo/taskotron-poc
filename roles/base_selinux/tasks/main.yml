@@ -1,0 +1,12 @@
+---
+- name: checking selinux status
+  command: getenforce
+  register: output
+  ignore_errors: True
+
+- debug:
+    var: output
+
+- fail:
+    msg: "Output is not expected"
+  when: output.stdout != "Enforcing"

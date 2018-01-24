@@ -1,0 +1,11 @@
+---
+- name: test_cloud
+  hosts: atomic
+  become: yes
+  vars:
+    service_name: chronyd
+  roles:
+    - role: roles/base_service_manipulation
+    - role: roles/base_services_start
+    - role: roles/base_selinux
+    - role: roles/base_system_logging
